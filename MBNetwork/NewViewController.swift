@@ -13,7 +13,8 @@ class NewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        title = "new"
+        view.backgroundColor = UIColor.white
     }
 
     override func didReceiveMemoryWarning() {

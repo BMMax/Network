@@ -10,7 +10,7 @@ import UIKit
 class Controller: ViewController {
     private lazy var viewModel: ViewModel = ViewModel()
     private lazy var presenter: Presenter = Presenter()
-    private lazy var baseView: View = View()
+    private lazy var baseView: View = View(frame: UIScreen.main.bounds)
 
     override func viewDidLoad() {
 
@@ -20,7 +20,6 @@ class Controller: ViewController {
     }
 
     private func setupView() {
-        baseView.frame = view.bounds
         view.addSubview(baseView)
     }
 

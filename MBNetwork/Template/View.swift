@@ -13,4 +13,25 @@ class View: UIView, ViewProtocol {
 
     var operation: ViewOpetation?
 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        let btn = UIButton(type: .custom)
+        btn.mb
+            .added(into: self)
+            .then {
+                $0.backgroundColor = UIColor.black
+                $0.addTarget(self, action: #selector(btnPush), for: .touchUpInside)
+                $0.setTitle("push", for: .normal)
+            }
+            .frame(CGRect(x: mb.midX, y: mb.midY, width: 100, height: 50))
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    @objc func btnPush() {
+        operation?.pushTo()
+    }
 }

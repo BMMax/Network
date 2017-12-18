@@ -8,12 +8,13 @@
 
 import Foundation
 protocol ModelProtocol {
+    var status: String? {get set}
 
 }
 
 protocol ViewModelProtocol {
 
-    func dynamicBinding(callBack: ()->())
+    func dynamicBinding(callBack: @escaping ()->())
 }
 
 protocol ViewOpetation {
@@ -50,4 +51,5 @@ extension Presenter: ViewOpetation {
     func pushTo() {
         currentController?.navigationController?.pushViewController(NewViewController(), animated: true)
     }
+
 }

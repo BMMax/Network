@@ -36,7 +36,8 @@ extension ViewModel {
         }
     }
 
-    func dynamicBinding(callBack: () -> ()) {
+
+    func dynamicBinding(callBack: @escaping () -> ()) {
 //        AlamofireClient().request(HomeRequest()).load(LoadType.none).respond(warn: nil) {
 //            guard let dict = $0["data"] as? [String: Any],
 //                let data = self.jsonToData(jsonDic: dict) else{ return }
@@ -49,7 +50,7 @@ extension ViewModel {
             let viewModel = ViewModel.parse(encodedData: $0)
             print("-------------模型打印")
             print(viewModel?.model?.data?.city ?? "没值")
-
+            callBack()
         }
 
     }
